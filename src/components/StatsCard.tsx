@@ -12,7 +12,7 @@ export default function StatsCard({ title, value, change, color }: StatsCardProp
   const isPositive = change.startsWith("+")
 
   return (
-    <Card sx={{ height: "100%" }}>
+    <Card sx={{ height: "100%" ,bgcolor:"background.default"}}>
       <CardContent>
         <Typography variant="body2" color="text.secondary" gutterBottom>
           {title}

@@ -25,9 +25,9 @@ const createAppTheme = (darkMode: boolean): Theme => {
     palette: {
       mode: darkMode ? "dark" : "light",
       primary: {
-        main: darkMode ? "#A78BFA" : "#8B5CF6",
-        light: darkMode ? "#C4B5FD" : "#A78BFA",
-        dark: darkMode ? "#8B5CF6" : "#7C3AED",
+        main: darkMode ? "#A78BFA" : "#242236",
+        light: darkMode ? "#C4B5FD" : "#2d2c2fff",
+        dark: darkMode ? "#8B5CF6" : "#47464aff",
       },
       secondary: {
         main: darkMode ? "#34D399" : "#10B981",
@@ -35,8 +35,8 @@ const createAppTheme = (darkMode: boolean): Theme => {
         dark: darkMode ? "#10B981" : "#059669",
       },
       background: {
-        default: darkMode ? "#0F172A" : "#F8FAFC",
-        paper: darkMode ? "#1E293B" : "#FFFFFF",
+        default: darkMode ? "#0F172A" : "#e4e4f1",
+        paper: darkMode ? "#1E293B" : "#d2d2db",
       },
       text: {
         primary: darkMode ? "#F1F5F9" : "#1E293B",

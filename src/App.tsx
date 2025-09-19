@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Box } from "@mui/material"
 import Sidebar from "./components/Sidebar"
 import DashboardPage from "./pages/DashboardPage"
-import TaskManagementPage from "./pages/TaskManagementPage"
+// import TaskManagementPage from "./pages/TaskManagementPage"
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="/tasks" element={<TaskManagementPage />} />
+          {/* <Route path="/tasks" element={<TaskManagementPage />} /> */}
         </Routes>
       </Box>
     </Router>

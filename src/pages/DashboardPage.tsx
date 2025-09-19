@@ -8,7 +8,7 @@ export default function DashboardPage() {
       component="main"
       sx={{
         flexGrow: 1,
-        bgcolor: "background.default",
+        bgcolor: "background.paper",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",

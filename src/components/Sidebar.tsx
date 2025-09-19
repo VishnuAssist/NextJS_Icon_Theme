@@ -18,7 +18,7 @@ const SIDEBAR_WIDTH = 80 // Smaller width since we only show icons
 
 const navigationItems = [
   { icon: Home, path: "/" },
-  { icon: Dashboard, path: "/tasks" },
+  // { icon: Dashboard, path: "/tasks" },
 ]
 
 export default function Sidebar() {
@@ -37,7 +37,7 @@ export default function Sidebar() {
       width: SIDEBAR_WIDTH,
       height: "100vh",
       bgcolor: "background.paper",
-      borderRight: "1px solid",
+      // borderRight: "1px solid",
       borderColor: "divider",
       display: "flex",
       flexDirection: "column",
@@ -57,9 +57,9 @@ export default function Sidebar() {
         mb: 4, // spacing below top icon
       }}
     >
-      <IconButton>
-        <LiveTv />
-      </IconButton>
+<IconButton sx={{ color: "common.white" }}>
+    <LiveTv fontSize="medium" />
+  </IconButton>
     </Box>
 
     {/* ✅ CENTERED NAV ICONS */}
