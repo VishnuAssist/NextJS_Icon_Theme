@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Box } from "@mui/material"
 import Sidebar from "./components/Sidebar"
-import DashboardPage from "./pages/DashboardPage"
-// import TaskManagementPage from "./pages/TaskManagementPage"
+import Home from "./pages/Home"
+import TopRated from "./pages/TopRated"
+import Popular from "./pages/Popular"
+import Upcoming from "./pages/UpComing"
 
 function App() {
   return (
@@ -10,8 +12,10 @@ function App() {
       <Box sx={{ display: "flex", minHeight: "100vh", bgcolor: "background.default" }}>
         <Sidebar />
         <Routes>
-          <Route path="/" element={<DashboardPage />} />
-          {/* <Route path="/tasks" element={<TaskManagementPage />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/TopRated" element={<TopRated />} />
+          <Route path="/Popular" element={<Popular />} />
+          <Route path="/Upcoming" element={<Upcoming />} />
         </Routes>
       </Box>
     </Router>
