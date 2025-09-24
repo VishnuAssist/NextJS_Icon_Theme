@@ -4,7 +4,6 @@ import backup from "../../public/placeholder.svg";
 interface MoviesCardProps {
   image: string;
   title: string;
-  description: string;
   rating: number;
   outOff: number;
   link: string;
@@ -13,12 +12,10 @@ interface MoviesCardProps {
 export default function MoviesCard({
   image,
   title,
-  description,
   rating,
   outOff,
   link,
 }: MoviesCardProps) {
-  // ✅ Fix string interpolation (was using quotes incorrectly)
   const poster = image ? `https://image.tmdb.org/t/p/original${image}` : backup;
 
   return (
@@ -27,7 +24,7 @@ export default function MoviesCard({
         bgcolor: "background.default",
         display: "flex",
         flexDirection: "column",
-        height: "100%", // ✅ Ensures cards stretch evenly
+        height: "100%",
         borderRadius: 3,
         boxShadow: 3,
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
@@ -40,7 +37,7 @@ export default function MoviesCard({
       {/* Poster */}
       <CardMedia
         component="img"
-        height="180"
+        height="150" // 🔥 Reduced height (was 180)
         image={poster}
         alt={title}
         sx={{
@@ -57,31 +54,18 @@ export default function MoviesCard({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          gap: 1,
         }}
       >
-        <Box>
-          <Typography variant="subtitle1" fontWeight="bold" noWrap>
-            {title}
-          </Typography>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{
-              display: "-webkit-box",
-              WebkitLineClamp: 3, // ✅ Show only 3 lines
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            {description}
-          </Typography>
-        </Box>
+        {/* ✅ Title */}
+        <Typography variant="subtitle1" fontWeight="bold" noWrap>
+          {title}
+        </Typography>
 
-        {/* Rating */}
-        <Box sx={{ mt: 1, display: "flex", alignItems: "center", gap: 1 }}>
+        {/* ✅ Rating only (description removed) */}
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Rating
-            value={rating / 2} // ✅ TMDB gives 10 scale, convert to 5-star
+            value={rating / 2}
             precision={0.5}
             readOnly
             size="small"

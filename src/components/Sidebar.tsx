@@ -22,9 +22,9 @@ const SIDEBAR_WIDTH = 80 // Smaller width since we only show icons
 
 const navigationItems = [
   { icon: Home, path: "/", label: "Home" },
-  { icon: MovieFilterIcon, path: "/TopRated", label: "Top Rated" },
-  { icon: TheatersIcon, path: "/Popular", label: "Popular" },
-  { icon: UpcomingIcon, path: "/Upcoming", label: "Upcoming" },
+  { icon: MovieFilterIcon, path: "/Movie/TopRated", label: "Top Rated" },
+  { icon: TheatersIcon, path: "/Movie/Popular", label: "Popular" },
+  { icon: UpcomingIcon, path: "/Movie/Upcoming", label: "Upcoming" },
 ]
 
 export default function Sidebar() {

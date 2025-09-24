@@ -1,10 +1,10 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import Header from "../../components/Header";
-import { moviesApi, useGetMoviesQuery } from "../../api/movieApi"; // ✅ SAME path
+import { moviesApi, useGetPopularQuery } from "../../api/movieApi"; // ✅ SAME path
 import MoviesCard from "../../components/MovieCard";
 
 export default function MoviePage() {
-  const { data: movieData, isLoading, isError, error } = useGetMoviesQuery();
+  const { data: movieData, isLoading, isError, error } = useGetPopularQuery();
 
   console.log("Movie data:", movieData);
   console.log("MoviePage moviesApi reducerPath:", moviesApi.reducerPath);

@@ -1,12 +1,13 @@
-import { Box, Container, Typography } from "@mui/material"
-import Header from "../../components/Header"
-import { useGetMoviesQuery } from "@/api/movieApi"
+import { Box, Container, Grid, Typography } from "@mui/material";
+import Header from "../../components/Header";
+import { moviesApi, useGetUpcomingQuery } from "../../api/movieApi"; // ✅ SAME path
+import MoviesCard from "../../components/MovieCard";
 
 export default function MoviePage() {
-  const { data: movieData, isLoading, isError, error } = useGetMoviesQuery()
+  const { data: movieData, isLoading, isError, error } = useGetUpcomingQuery();
 
-  console.log("Movie data:", movieData)
-
+  console.log("Movie data:", movieData);
+  console.log("MoviePage moviesApi reducerPath:", moviesApi.reducerPath);
   return (
     <Box
       component="main"
@@ -27,11 +28,24 @@ export default function MoviePage() {
           </Typography>
         )}
         {movieData && (
-          <Typography>
-            {movieData.results.map((movie) => movie.title).join(", ")}
-          </Typography>
+          <>
+            <Grid container spacing={2}>
+              {movieData.results.map((movie: any) => (
+                <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+                  <MoviesCard
+                    title={movie.title}
+                    image={movie.poster_path}
+                    description={movie.overview}
+                    rating={movie.vote_average}
+                    outOff={movie.vote_count}
+                    link={`/movies/${movie.id}`}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </>
         )}
       </Container>
     </Box>
-  )
+  );
 }

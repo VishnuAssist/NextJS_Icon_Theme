@@ -13,9 +13,9 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/TopRated" element={<TopRated />} />
-          <Route path="/Popular" element={<Popular />} />
-          <Route path="/Upcoming" element={<Upcoming />} />
+          <Route path="/Movie/TopRated" element={<TopRated />} />
+          <Route path="/Movie/Popular" element={<Popular />} />
+          <Route path="/Movie/Upcoming" element={<Upcoming />} />
         </Routes>
       </Box>
     </Router>

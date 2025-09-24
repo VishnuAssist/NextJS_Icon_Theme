@@ -11,12 +11,21 @@ export const moviesApi = createApi({
     // }),
 
     getMovies: builder.query({
-  query: () => `/movie/popular?language=en-US&page=1&api_key=${API_KEY}`,
-}),
+      query: () => `/movie/now_playing?language=en-US&page=1&api_key=${API_KEY}`,
+    }),
+    getPopular: builder.query({
+      query: () => `/movie/popular?language=en-US&page=1&api_key=${API_KEY}`,
+    }),
+    getTopRated: builder.query({
+      query: () => `/movie/top_rated?language=en-US&page=1&api_key=${API_KEY}`,
+    }),
+    getUpcoming: builder.query({
+      query: () => `/movie/upcoming?language=en-US&page=1&api_key=${API_KEY}`,
+    }),
     searchMovies: builder.query({
       query: (query) => `/search/movie?query=${query}&api_key=${API_KEY}`,
     }),
   }),
 });
 
-export const { useGetMoviesQuery, useSearchMoviesQuery } = moviesApi;
+export const { useGetMoviesQuery,useGetTopRatedQuery,useGetUpcomingQuery, useSearchMoviesQuery,useGetPopularQuery } = moviesApi;
