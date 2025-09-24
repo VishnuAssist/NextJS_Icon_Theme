@@ -1,11 +1,15 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import Header from "../../components/Header";
-import { moviesApi, useGetUpcomingQuery } from "../../api/movieApi"; // ✅ SAME path
+import { moviesApi, useGetUpcomingQuery, useSearchMoviesQuery } from "../../api/movieApi"; // ✅ SAME path
 import MoviesCard from "../../components/MovieCard";
+import { useState } from "react";
 
 export default function MoviePage() {
-  const { data: movieData, isLoading, isError, error } = useGetUpcomingQuery();
-
+  // const { data: movieData, isLoading, isError, error } = useGetUpcomingQuery();
+   const [search, setSearch] = useState("");
+  const { data: movieData, isLoading, isError, error } = search
+    ? useSearchMoviesQuery(search)
+    : useGetUpcomingQuery();
   console.log("Movie data:", movieData);
   console.log("MoviePage moviesApi reducerPath:", moviesApi.reducerPath);
   return (
@@ -19,7 +23,7 @@ export default function MoviePage() {
         flexDirection: "column",
       }}
     >
-      <Header />
+      <Header onSearch={setSearch}/>
       <Container maxWidth="xl" sx={{ flex: 1, py: 3 }}>
         {isLoading && <Typography>Loading movies...</Typography>}
         {isError && (
@@ -33,6 +37,7 @@ export default function MoviePage() {
               {movieData.results.map((movie: any) => (
                 <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                   <MoviesCard
+                  id={movie.id}
                     title={movie.title}
                     image={movie.poster_path}
                     description={movie.overview}

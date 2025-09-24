@@ -1,22 +1,29 @@
 import { Card, CardContent, CardMedia, Typography, Box, Rating } from "@mui/material";
-import backup from "../../public/placeholder.svg";
+// import backup from "../assets/placeholder.svg";
+import { useNavigate } from "react-router-dom";
 
 interface MoviesCardProps {
+  id:number;
   image: string;
   title: string;
   rating: number;
   outOff: number;
   link: string;
+  description:string;
 }
 
 export default function MoviesCard({
+  id,
   image,
   title,
   rating,
+  // description,
   outOff,
-  link,
+  // link,
 }: MoviesCardProps) {
-  const poster = image ? `https://image.tmdb.org/t/p/original${image}` : backup;
+    const navigate = useNavigate();
+
+  const poster = image ? `https://image.tmdb.org/t/p/original${image}` : "/placeholder.svg"; 
 
   return (
     <Card
@@ -33,6 +40,7 @@ export default function MoviesCard({
           boxShadow: 6,
         },
       }}
+       onClick={() => navigate(`/Movie/${id}`)}
     >
       {/* Poster */}
       <CardMedia
